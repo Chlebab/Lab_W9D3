@@ -1,13 +1,28 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
+import BookingContainer from './containers/BookingContainer';
 
 
 
 function App() {
+
+  const [bookings, setBookings] = useState([])
+
   useEffect(() => {
-    fetch('http://localhost:9000/')
+    fetch('http://localhost:9000/api/guests/')
       .then(response => response.json())
-      .then(data => console.log(data));
-  })
+      .then((data) => setBookings(data))
+  }, []&& bookings) 
+
+  const addBooking = (booking) => {
+    setBookings([...bookings, booking])
+  }
+  
+
+  return (
+    <>
+    <BookingContainer bookings={bookings} addBooking={addBooking} />
+    </>
+  )
 
 }
 

@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Booking = () => {
+const Booking = ({booking}) => {
+
+
     return (  
         <div>
-            <p> I am a booking </p>
+            <h3>Name: {booking.name} </h3>
+            <p>Email: {booking.email} </p>
+            <p>Checked In: {booking.checkedIn === "true" ? "True" : "False"} </p>
         </div>
     );
 }
- 
+
 export default Booking;
-<div>
-    <p> I am a booking </p>
-</div>

@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import BookingList from '../components/BookingList';
+import BookingForm from '../components/BookingForm';
 
-const BookingContainer = () => {
+const BookingContainer = ({ bookings, addBooking }) => {
+
     return (  
         <div>
-            <h1>I am a booking container :></h1>
-            <BookingList/>
+            <BookingForm addBooking={addBooking}/>
+            <BookingList bookings={bookings} />
         </div>
     );
 }

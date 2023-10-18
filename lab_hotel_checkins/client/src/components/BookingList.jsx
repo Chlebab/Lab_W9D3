@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
 import Booking from './Booking';
 
-const BookingList = () => {
+const BookingList = ({bookings}) => {
 
+    const bookingsItems = bookings.map((booking) => {
+        return <Booking booking={booking} key={booking._id} id={booking._id}/>
+    })
 
     return (  
         <div>
-            <h3>I am booking list</h3>
-            <Booking/>
+            {bookingsItems}
         </div>
     );
 }
- 
+
 export default BookingList

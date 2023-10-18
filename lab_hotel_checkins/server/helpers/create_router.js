@@ -34,11 +34,14 @@ const createRouter = function (collection) {
         const newData = req.body
         collection
         .insertOne(newData)
-        // .then((result) => res.json(result.ops[0]))
+        .then((result) => {
+            // res.json(result.insertedId)
+            res.json(result.ops[0])
+        })
         // .then((doc) => res.json(doc))
-        .then(console.log(newData))
-        collection.find().toArray()
-        .then((docs) => res.json(docs))
+        // .then(console.log(newData))
+        // collection.find().toArray()
+        // .then((docs) => res.json(docs))
         .catch((err) => {
             console.error(err);
             res.status(500);
